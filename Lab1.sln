@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab1", "Lab1.vcxproj", "{DA2CF677-F4E6-4BD0-AE89-726DB6E6A6B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C0370FB-7254-43BA-BB8C-6BA9A7DDD4D5}"
+	ProjectSection(SolutionItems) = preProject
+		List.h = List.h
+		List.inl = List.inl
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
