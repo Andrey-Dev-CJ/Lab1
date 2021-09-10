@@ -35,6 +35,8 @@
 #my_proj_file
 *.opensdf
 *.suo
-*.sdf 
+*.sdf
+Debug
+.vs
 *vcxproj.filters
 *vcxproj.user
