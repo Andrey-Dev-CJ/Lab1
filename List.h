@@ -18,7 +18,10 @@ public:
 	
 	T& operator[](const int index);
 	void append(T val);
-
+        //void save();
+        //void push(T val);
+        //T& pop();
+        //void pop();
 	//friend std::istream& operator>>(std::istream& in,List<T>&other);
 	template<class T>
 	friend std::ostream& operator<<(std::ostream& out, const List<T>& other);
