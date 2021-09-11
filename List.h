@@ -17,10 +17,11 @@ public:
 	int getSize();
 	
 	T& operator[](const int index);
-	
-	friend std::istream& operator>>(std::istream& in,List<T>&other);
+	void append(T val);
 
-	friend std::ostream& operator<<(std::ostream & out, const List<T>& other);
+	//friend std::istream& operator>>(std::istream& in,List<T>&other);
+	template<class T>
+	friend std::ostream& operator<<(std::ostream& out, const List<T>& other);
 
 
 };

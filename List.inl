@@ -41,7 +41,7 @@ inline List<T>::List(T* arr, int size)
 			qptr->setAdr(elptr);
 			elptr->setAdr(head);
 		}
-		size++;
+		this->size++;
 	}
 
 }
@@ -83,10 +83,42 @@ inline T& List<T>::operator[](const int index)
 	return qptr->getVal();
 }
 
-template <class T>
-std::ostream& operator<<(std::ostream& out, const List<T>& other) {
-	for (int i = 0; i < size; i++) {
-		out << other[i];
+template<class T>
+inline void List<T>::append(T val)
+{
+
+	Element<T>* elptr = new (Element<T>), * qptr = head;
+	if (this->size == 0) {
+		
+		elptr->setVal(val);
+		elptr->setAdr(elptr);
+		head = q = elptr;
 	}
-	return out;
+	else {
+		elptr->setVal(val);
+		while (qptr->getAdr() != head) //проходимся до последнего 
+			qptr = qptr->getAdr();
+		qptr->setAdr(elptr);
+		elptr->setAdr(head);
+	}
+	this->size++;
+}
+
+
+template<class T>
+inline std::ostream& operator<<(std::ostream& out, const List<T>& other)
+{
+	for (int i = 0; i < other.size; i++) {
+		Element<T> *qptr = other.head;
+	
+		
+		while (qptr->getAdr() != other.head) { //проходимся до последнего 
+			out << qptr->getVal()<<" ";
+			qptr = qptr->getAdr();
+
+		}
+		out<<qptr->getVal()<<"\n";
+		
+		return out;
+	}
 }
