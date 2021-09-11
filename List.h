@@ -18,6 +18,7 @@ public:
 	
 	T& operator[](const int index);
 	void append(T val);
+	///chek
         //void save();
         //void push(T val);
         //T& pop();
