@@ -13,17 +13,21 @@ public:
 	List();
 	List(T val);
 	List(T* array, int size);
+	List(const List<T>& obj);
 	~List();
 	int getSize();
 	
 	T& operator[](const int index);
 	void append(T val);
 	///chek
-        //void save();
-        //void push(T val);
-        //T& pop();
-        //void pop();
+    T& pop();
+    //void pop();
+
+	void save(T& Obj);
+
+	//template <class T>
 	//friend std::istream& operator>>(std::istream& in,List<T>&other);
+
 	template<class T>
 	friend std::ostream& operator<<(std::ostream& out, const List<T>& other);
 
