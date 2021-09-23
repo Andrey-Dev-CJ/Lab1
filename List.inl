@@ -103,14 +103,49 @@ inline int List<T>::getSize()
 }
 
 template<class T>
-inline T& List<T>::operator[](const int index)
+inline List<T>& List<T>::operator=(const List<T>& obj)
+{
+	// TODO: вставьте здесь оператор return
+	this->head = nullptr;
+	this->q = this->head;
+	this->size = obj.size;
+
+	Element<T>* elptrObj = obj.head;//ссылка на первый элемент входного объекта
+
+
+	for (int i = 0; i < this->size; i++) {
+
+		Element<T>* elptr = new (Element<T>);
+		if (i == 0) {
+			elptr->setVal(elptrObj->getVal());
+			elptr->setAdr(elptr);
+			this->head = this->q = elptr;
+		}
+		else {
+			Element<T>* hptr = head;
+			elptr->setVal(elptrObj->getVal());
+			while (hptr->getAdr() != this->head) //проходимся до последнего 
+				hptr = hptr->getAdr();
+			hptr->setAdr(elptr);
+			elptr->setAdr(this->head);
+		}
+		elptrObj = elptrObj->getAdr();
+
+		return *this;
+	}
+
+
+}
+
+template<class T>
+inline T List<T>::operator[](const int index)
 {
 	Element<T>*qptr = this->head;
 	for (int i = 0; i < index; i++) {
 		qptr = qptr->getAdr();
 	}
-	
-	return T(qptr->getVal());//why i can't get name????
+	//T myObj = qptr->getVal();
+	return T(qptr->getVal());//why i can't get object????
 }
 
 template<class T>
@@ -134,9 +169,8 @@ inline void List<T>::append(T val)
 	this->size++;
 }
 
-
 template<class T>
-inline T& List<T>::pop()
+inline auto List<T>::pop()
 {
 	try
 	{

@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include"Element.h"
+using namespace std;
 template <class T>
 class List {
 
@@ -10,17 +11,19 @@ class List {
 
 public:
 
-	List();
+	explicit List();
 	List(T val);
 	List(T* array, int size);
 	List(const List<T>& obj);
 	~List();
 	int getSize();
 	
-	T& operator[](const int index);
+	List<T>& operator=(const List<T>& obj);
+	T operator[](const int index);
+
 	void append(T val);
 	///chek
-    T& pop();
+    auto pop();
     //void pop();
 
 	void save(T& Obj);
