@@ -2,6 +2,7 @@
 #include"List.h"
 #include<iostream>
 #include<string>
+using namespace std;
 template<class T>
 inline List<T>::List()
 {
@@ -170,13 +171,14 @@ inline void List<T>::append(T val)
 }
 
 template<class T>
-inline auto List<T>::pop()
+inline T& List<T>::pop()
 {
 	try
 	{
-		Element<T>* qptr = head, val;
+		Element<T>* qptr = head;
+		T val;
 		if (this->size == 0) {
-			throw "Empty list"
+			throw "Empty list";
 		}
 		else {
 			while (qptr->getAdr()->getAdr()!= head) //проходимся до предпоследнего 
@@ -198,7 +200,7 @@ inline auto List<T>::pop()
 }
 
 template<class T>
-inline void List<T>::save(T& Obj)
+inline void List<T>::save()
 {
 	for (int i = 0; i < other.size; i++) {
 		Element<T>* qptr = other.head;
@@ -216,12 +218,55 @@ inline void List<T>::save(T& Obj)
 	
 }
 
+template<class T>
+inline void List<T>::irase(int index)
+{
+	Element<T>* qptr = this->head, *delptr = this->head;
+	string s = "empty list\n";
+	try
+	{
+		if (size == 0)
+			throw s;
+		if (index == 0) {
+			qptr = qptr->getAdr();
+			q = qptr;
+			delete head;
+			q->setAdr(qptr);
+			head = qptr;
+			size--;
+		}
+		else if (index == size - 1) {
+			pop();
+		}
+		else if (index >= size)
+			throw 1;
+		else {
+			Element<T>* qptrLast;
+			for (int i = 0; i < index-1; i++) {
+				qptr = qptr->getAdr();//перед удаляемым
+			}//до удаляемого	
+			qptrLast = qptr;//сохранили адрес i-1
+			qptr = qptr->getAdr();	//перешли к i
+			qptrLast->setAdr(qptr->getAdr());//в приявзяли i-1 к i+1
+			delete qptr;
+			size--;
 
-//template<class T>
-//inline std::istream& operator>>(std::istream& in, List<T>& other)
-//{
-//	
-//}
+		}
+	}
+	
+	catch (const std::exception&)
+	{
+
+	}
+
+	
+	
+
+	//delptr = qptr;//присвоили адрес удаляемого элемента
+	
+
+}
+
 
 template<class T>
 inline std::ostream& operator<<(std::ostream& out, const List<T>& other)

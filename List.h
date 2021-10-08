@@ -17,17 +17,17 @@ public:
 	List(const List<T>& obj);
 	~List();
 	int getSize();
-	
+
 	List<T>& operator=(const List<T>& obj);
 	T operator[](const int index);
 
 	void append(T val);
 	///chek
-    auto pop();
-    //void pop();
+	T& pop();
+	//void pop();
 
-	void save(T& Obj);
-
+	void save();
+	void irase(int index);
 	//template <class T>
 	//friend std::istream& operator>>(std::istream& in,List<T>&other);
 
