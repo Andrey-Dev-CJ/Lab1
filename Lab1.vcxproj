@@ -77,11 +77,8 @@
     <ClInclude Include="Yaht.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DATA\Sboat.ob" />
     <None Include="Element.inl" />
     <None Include="List.inl" />
-    <None Include="PATH.pth" />
-    <None Include="Yaht.ob" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
