@@ -1,5 +1,7 @@
 #pragma once
 #include<string>
+#include<iostream>
+#include<fstream>
 //#include"Ship.h"
 //#include"List.h"
 using namespace std;
@@ -15,11 +17,13 @@ class Yaht
 	int crew;
 
 public:
-	//void save();
+	void save();
 	//void recovery();
 	void parse(string str);
 	Yaht(string str);
 	Yaht();
-
+	Yaht(int fl);
+	void show();
+	
 };
 
