@@ -76,7 +76,6 @@ inline List<T>::List(const List<T>& obj)
 }
 
 
-
 template<class T>
 inline List<T>::~List()
 {
