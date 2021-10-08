@@ -7,6 +7,19 @@
 //{
 //}
 
+void SpeedBoat::save()
+{
+	ofstream of;
+
+	of.open("DATA/Sboat.obj", ios_base::out | ios_base::app);
+	int i = 0, j=0;
+	string s = "";
+	drive.getData(i,j,s);
+	of << "#" << this->mission << "|" << this->materials << "|{" << i << "|" <<
+		j << "|" << s << "}|" << this->speedMax << "|" << this->crew << ";\n";
+	of.close();
+}
+
 void SpeedBoat::parse(string str)
 {
 	string mission = "";
@@ -45,11 +58,11 @@ void SpeedBoat::parse(string str)
 				//{***|***|***}
 				int nSign = 0;
 				if (str[in] == '{') {
-					nSign++;
+					//nSign++;
 					in++;
 				}
 				
-				else {
+				
 					
 					while (str[in] != '}') {
 						if (str[in] == '|') {
@@ -73,7 +86,7 @@ void SpeedBoat::parse(string str)
 						}
 						in++;
 					}			
-				}
+				
 				//mission += str[i];
 				i = in;
 				
@@ -113,3 +126,79 @@ SpeedBoat::SpeedBoat()
 	this->speedMax = 0;
 	this->crew = 0;
 }
+
+SpeedBoat::SpeedBoat(int fl)
+{
+
+
+	ofstream of;
+	
+
+	of.open("DATA/Sboat.obj", ios_base::out | ios_base::app);
+
+
+
+	int i,j;
+	string s;
+	cout << "¬ведите гарантию " << endl;
+	cin >> i;
+	while (cin.fail()) {
+		cin.clear();
+		cin.ignore();
+		cout << "Enter integer number ";
+		cin >> i;
+	}
+	cout << "¬ведите вес" << endl;
+	cin >> j;
+	while (cin.fail()) {
+		cin.clear();
+		cin.ignore();
+		cout << "Enter integer number ";
+		cin >> j;
+	}
+
+	cout << "¬ведите страну производител€" << endl;
+	cin >>s;
+	drive.setData(i, j, s);
+
+	cout << "¬ведите цель миссии" << endl;
+	cin >> this->mission;
+
+	cout << "¬ведите материалы" << endl;
+	cin >> this->materials;
+
+	cout << "¬ведите максимальную скорость" << endl;
+	cin >> this->speedMax;
+	while (cin.fail()) {
+		cin.clear();
+		cin.ignore();
+		cout << "Enter integer number ";
+		cin >> this->speedMax;
+	}
+	
+	cout << "¬ведите экипаж " << endl;
+	cin >> this->crew;
+	while (cin.fail()) {
+		cin.clear();
+		cin.ignore();
+		cout << "Enter integer number ";
+		cin >> this->crew;
+	}
+	of << "#" << this->mission << "|" << this->materials << "|{" << i << "|" <<
+		j << "|" << s << "}|" << this->speedMax << "|" << this->crew << ";\n";
+	of.close();
+
+}
+
+void SpeedBoat:: show() {
+
+	int life, weight;
+	string count;
+	this->drive.getData(life, weight, count);
+	cout << "Missions: " << this->mission << endl;
+	cout << "Materials: " << this->materials << endl;
+	cout << "Driving haracteristics: " << life <<"\t"<<weight<<"\t"<<count<< endl;
+	cout << "Max speed: " << this->speedMax << endl;
+	cout << "Count of crew: " << this->crew << endl;
+
+};

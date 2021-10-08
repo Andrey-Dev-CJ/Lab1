@@ -1,6 +1,8 @@
 #pragma once
 #include<string>
-//#include"Ship.h"
+#include<iostream>
+#include<fstream>
+
 using namespace std;
 class Submarine
 {
@@ -13,7 +15,13 @@ class Submarine
 
 
 public:
-	//void save();
+	void save();
 	//void recovery();
+	void parse(string str);
+	Submarine();
+	Submarine(int fl);
+	Submarine(string str);
+	void show();
+
 };
 

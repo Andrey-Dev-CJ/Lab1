@@ -1,14 +1,17 @@
 #pragma once
 #include<string>
-//#include"Ship.h"
+#include<iostream>
+#include<fstream>
+
 using namespace std;
 class SpeedBoat
 {
-	class drivingCharacteristics{
+	class drivingCharacteristics {
 
 		int life;
 		int weght;
 		string country;
+
 	public:
 		drivingCharacteristics() {
 			life = 0;
@@ -20,9 +23,9 @@ class SpeedBoat
 			this->weght = weght;
 			this->country = country;
 		}
-		void getData(int life, int weght, string country) {
-			life = this->life ;
-			weght = this->weght ;
+		void getData(int &life, int &weght, string &country) {
+			life = this->life;
+			weght = this->weght;
 			country = this->country;
 		}
 	};
@@ -32,14 +35,15 @@ class SpeedBoat
 	string materials;
 	int speedMax;
 	int crew;
-	
+
 
 public:
-	//void save();
+	void save();
 	//void recovery();
 	void parse(string str);
 	SpeedBoat(string str);
 	SpeedBoat();
-	
+	SpeedBoat(int fl);
+	void show();
 };
 
