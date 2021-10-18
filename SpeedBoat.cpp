@@ -1,4 +1,5 @@
 #include "SpeedBoat.h"
+#include"helpsFunctions.h"
 //void Ship::save()
 //{
 //
@@ -142,20 +143,11 @@ SpeedBoat::SpeedBoat(int fl)
 	string s;
 	cout << "¬ведите гарантию " << endl;
 	cin >> i;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> i;
-	}
+	inputMy(i);
 	cout << "¬ведите вес" << endl;
 	cin >> j;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> j;
-	}
+	inputMy(j);
+	
 
 	cout << "¬ведите страну производител€" << endl;
 	cin >>s;
@@ -169,21 +161,11 @@ SpeedBoat::SpeedBoat(int fl)
 
 	cout << "¬ведите максимальную скорость" << endl;
 	cin >> this->speedMax;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->speedMax;
-	}
+	inputMy(this->speedMax);
 	
 	cout << "¬ведите экипаж " << endl;
 	cin >> this->crew;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->crew;
-	}
+	inputMy(this->crew);
 	of << "#" << this->mission << "|" << this->materials << "|{" << i << "|" <<
 		j << "|" << s << "}|" << this->speedMax << "|" << this->crew << ";\n";
 	of.close();

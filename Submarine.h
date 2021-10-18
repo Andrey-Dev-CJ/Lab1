@@ -2,6 +2,7 @@
 #include<string>
 #include<iostream>
 #include<fstream>
+#include"helpsFunctions.h"
 
 using namespace std;
 class Submarine

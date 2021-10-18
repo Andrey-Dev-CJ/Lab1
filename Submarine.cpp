@@ -1,4 +1,5 @@
 #include "Submarine.h"
+#include"helpsFunctions.h"
 //void Ship::save()
 
 void Submarine::save()
@@ -84,57 +85,27 @@ Submarine::Submarine(int fl)
 	of.open("DATA/Sub.obj", ios_base::out | ios_base::app);
 	cout << "¬ведите длину" << endl;
 	cin >> this->length;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->length;
-	}
+	inputMy(this->length);
 
 	cout << "¬ведите ширину" << endl;
 	cin >> this->width;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->width;
-	}
+	inputMy(this->width);
 
 	cout << "¬ведите жкипаж" << endl;
 	cin >> this->crew;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->crew;
-	}
+	inputMy(this->crew);
 
 	cout << "¬ведите врем€ нахождени€ под водой" << endl;
 	cin >> this->time;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->time;
-	}
+	inputMy(this->time);
 
 	cout << "¬ведите максимальную скорость" << endl;
 	cin >> this->speedMax;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->speedMax;
-	}
+	inputMy(this->speedMax);
 
 	cout << "¬ведите вооружение" << endl;
 	cin >> this->armament;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->armament;
-	}
+	inputMy(this->armament);
 
 	of << "#" << this->length << "|" << this->width << "|" << this->crew << "|" <<
 		this->time << "|" << this->speedMax << "|" << this->armament << ";\n";

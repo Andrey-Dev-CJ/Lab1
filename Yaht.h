@@ -2,6 +2,7 @@
 #include<string>
 #include<iostream>
 #include<fstream>
+#include"helpsFunctions.h"
 //#include"Ship.h"
 //#include"List.h"
 using namespace std;

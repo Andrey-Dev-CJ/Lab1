@@ -1,5 +1,5 @@
 #include "Yaht.h"
-
+#include"helpsFunctions.h"
 //void Ship::recovery()
 //{
 //}
@@ -99,32 +99,17 @@ Yaht::Yaht(int fl)
 
 	cout << "¬ведите максимальную скорость " << endl;
 	cin >> this->speedMax;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number  ";
-		cin >> this->speedMax;
-	}
+	inputMy(this->speedMax);
 
 
 	cout << "¬ведите длину " << endl;
 	cin >> this->length;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number ";
-		cin >> this->length;
-	}
+	inputMy(this->length);
 
 
 	cout << "¬ведите экипаж " << endl;
 	cin >> this->crew;
-	while (cin.fail()) {
-		cin.clear();
-		cin.ignore();
-		cout << "Enter integer number of command ";
-		cin >> this->crew;
-	}
+	inputMy(this->crew);
 
 	of << "#" << this->type << "|" << this->name << "|" << this->mission << "|" <<
 		this->speedMax << "|" << this->length << "|" << this->crew << ";\n";

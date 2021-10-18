@@ -2,6 +2,7 @@
 #include<string>
 #include"List.h"
 #include"Ship.h"
+#include"helpsFunctions.h"
 #include<fstream>
 using namespace std;
 
@@ -26,12 +27,6 @@ int main() {
 		i++;
 	}
 	
-
-	int a[4] = { 0,8,6,4 };
-	int* mas = a;
-	List<int>Name(mas, 4);
-	cout << Name;
-
 	bool fl = true;
 	int inp;
 
@@ -44,18 +39,11 @@ int main() {
 		cout << "3. Меню подводных лодок\n";
 		cout << "4. Меню катеров\n";
 		cout << "5. Выход\n";
-		
-
 		cout <<"вы выбрали - ";
+
 		cin >> m;
-		//добавить проверку на ввод данных
-		
-		while (cin.fail()) {
-			cin.clear();
-			cin.ignore();
-			cout << "Enter integer number of command ";
-			cin >> m;
-		}
+		inputMy(m);
+
 		switch (m)
 		{
 		case 1:
@@ -76,12 +64,7 @@ int main() {
 				cout << "4. Выйти в меню\n";
 				cout << "вы выбрали - ";
 				cin >> inp;
-				while (cin.fail()) {
-					cin.clear();
-					cin.ignore();
-					cout << "Enter integer number of command ";
-					cin >> inp;
-				}
+				inputMy(inp);
 
 				switch (inp)
 				{
@@ -95,12 +78,7 @@ int main() {
 					cout << "Сейчас яхт - " << Ships.getCntYahts() << endl;
 					cout << "ведите индекс яхты - ";
 					cin >> inp;
-					while (cin.fail()) {
-						cin.clear();
-						cin.ignore();
-						cout << "Enter integer number of command ";
-						cin >> inp;
-					}
+					inputMy(inp);
 					Ships.removeYaht(inp);
 					break;
 				default:
@@ -119,12 +97,7 @@ int main() {
 				cout << "4. Выйти в меню\n";
 				cout << "вы выбрали - ";
 				cin >> inp;
-				while (cin.fail()) {
-					cin.clear();
-					cin.ignore();
-					cout << "Enter integer number of command ";
-					cin >> inp;
-				}
+				inputMy(inp);
 				switch (inp)
 				{
 
@@ -138,12 +111,7 @@ int main() {
 					cout << "Сейчас подлодок - " << Ships.getCntSub() << endl;
 					cout << "ведите индекс подлодки - ";
 					cin >> inp;
-					while (cin.fail()) {
-						cin.clear();
-						cin.ignore();
-						cout << "Enter integer number of command ";
-						cin >> inp;
-					}
+					inputMy(inp);
 					Ships.removeSub(inp);
 					break;
 				default:
@@ -163,12 +131,7 @@ int main() {
 				cout << "4. Выйти в меню\n";
 				cout << "вы выбрали - ";
 				cin >> inp;
-				while (cin.fail()) {
-					cin.clear();
-					cin.ignore();
-					cout << "Enter integer number of command ";
-					cin >> inp;
-				}
+				inputMy(inp);
 				switch (inp)
 				{
 				case 1:
@@ -202,3 +165,4 @@ int main() {
 	system("pause");
 	return 0;
 }
+
